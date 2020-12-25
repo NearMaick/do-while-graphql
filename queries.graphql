@@ -1,0 +1,37 @@
+# Write your query or mutation here
+
+query {
+  categories {
+    name,
+    description,
+    _id
+  }
+}
+
+
+mutation {
+  createCategory(categoryInput: {
+    name: "Harem",
+    description: "Humor pervetido com várias garotas"
+  }){
+    _id
+  }
+}
+
+query {
+  videos {
+    name,
+    description,
+    _id
+  }
+}
+
+mutation {
+  createVideos(videoInput: {
+    name: "Nanatsu no Taizai",
+    description: "Conhecido como os sete pecado capitais"
+    category: "5fdfecab27e703217965f6b4"
+  }){
+    _id
+  }
+}
