@@ -1,14 +1,14 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
 const Schema = new mongoose.Schema({
   description: {
     type: String,
-    required: true,
+    required: true
   },
   name: {
     type: String,
-    required: true,
-  },
-});
+    required: true
+  }
+})
 
-export default mongoose.model("Categories", Schema);
+export default mongoose.model('Categories', Schema)

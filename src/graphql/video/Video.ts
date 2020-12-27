@@ -1,15 +1,15 @@
-import { Field, ObjectType } from "type-graphql";
+import { Field, ObjectType } from 'type-graphql'
 
 @ObjectType()
 class Video {
   @Field()
-  name: string;
+  name: string
 
   @Field()
-  description: string;
- 
+  description: string
+
   @Field()
-  _id: string;
+  _id: string
 }
 
-export default Video;
+export default Video
