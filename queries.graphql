@@ -8,6 +8,13 @@ query {
   }
 }
 
+query {
+  category(_id: "5fe89b861cc4f62c8c473d38") {
+    name,
+    description,
+    _id
+  }
+}
 
 mutation {
   createCategory(categoryInput: {
@@ -18,11 +25,21 @@ mutation {
   }
 }
 
-query {
-  videos {
+mutation {
+  updateCategory(_id: "5fe8cb9be4312b4924a51a44", categoryInput: {
+    name: "Novel",
+  	description: "Anime estilo romance"
+  }) {
+    _id,
     name,
-    description,
-    _id
+    description
+  }
+}
+
+mutation {
+  deleteCategory(_id: "5fe8c8c4c79a3403c42c7fa3"){
+    _id,
+    name
   }
 }
 
@@ -32,6 +49,14 @@ mutation {
     description: "Conhecido como os sete pecado capitais"
     category: "5fdfecab27e703217965f6b4"
   }){
+    _id
+  }
+}
+
+query {
+  videos {
+    name,
+    description,
     _id
   }
 }
