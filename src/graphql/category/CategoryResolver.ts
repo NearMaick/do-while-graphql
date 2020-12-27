@@ -26,11 +26,35 @@ class CategoryResolver {
     return categories
   }
 
+  @Query(() => Category)
+  async category(@Arg('_id') _id: string): Promise<Document<CategoryType>> {
+    const category = await CategorySchema.findById(_id)
+    return category
+  }
+
   @Mutation(() => Category)
   async createCategory(
     @Arg('categoryInput') categoryInput: CategoryInput
   ): Promise<Document<CategoryType>> {
     const category = await CategorySchema.create(categoryInput)
+    return category
+  }
+
+  @Mutation(() => Category)
+  async updateCategory(
+    @Arg('_id') _id: string,
+    @Arg('categoryInput') categoryInput: CategoryInput
+  ): Promise<Document<CategoryType>> {
+    await CategorySchema.findByIdAndUpdate(_id, categoryInput)
+    const category = await CategorySchema.findById(_id)
+    return category
+  }
+
+  @Mutation(() => Category)
+  async deleteCategory(
+    @Arg('_id') _id: string
+  ): Promise<Document<CategoryType>> {
+    const category = await CategorySchema.findByIdAndDelete(_id)
     return category
   }
 }
